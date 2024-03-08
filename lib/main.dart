@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_poo/welcome/welcome.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,10 +13,8 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner  : false,
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+        body: Welcome(),
         ),
-      ),
-    );
+      );
   }
 }

@@ -7,8 +7,11 @@ environment:
   sdk: '>=3.2.3 <4.0.0'
 
 dependencies:
+  custom_accordion: ^1.0.0
   flutter:
     sdk: flutter
+  rounded_loading_button: ^2.1.0
+  simple_animated_button: ^0.0.9
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +20,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+  fonts:
+    - family: Space
+      fonts:
+        - asset: assets/fonts/SpaceMono-Bold.ttf
