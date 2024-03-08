@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:custom_accordion/custom_accordion.dart';
+import 'package:game_poo/onboarding/onboarding_start_teaching.dart';
 import 'package:simple_animated_button/simple_animated_button.dart';
 
 class Home extends StatefulWidget {
@@ -48,7 +49,12 @@ class _HomeState extends State<Home> {
             children: [
               const SizedBox(height: 60),
               ElevatedLayerButton(
-                onClick: () {},
+                onClick: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const OnboardingStartTeaching()),
+                  );
+                },
                 buttonHeight: 60,
                 buttonWidth: 270,
                 animationDuration: const Duration(milliseconds: 200),
@@ -70,7 +76,6 @@ class _HomeState extends State<Home> {
                     borderRadius: const BorderRadius.all(Radius.circular(18))),
               ),
               const SizedBox(height: 10),
-
               const Text(
                 "Progress : 0/9",
                 style: TextStyle(
@@ -132,6 +137,7 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         height: 140,
                         child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: topicsBasic.length,
                           itemBuilder: (context, index) {
                             return Padding(
@@ -142,33 +148,38 @@ class _HomeState extends State<Home> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(17)),
                                 ),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(12),
-                                        child: Text(
-                                          '- ${topicsBasic[index].topic}',
-                                          style: const TextStyle(
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.w400,
-                                            color: Color.fromARGB(
-                                                255, 115, 114, 114),
+                                child: InkWell(
+                                  onTap: () {
+                                    print(topicsBasic[index].topic);
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(12),
+                                          child: Text(
+                                            '- ${topicsBasic[index].topic}',
+                                            style: const TextStyle(
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.w400,
+                                              color: Color.fromARGB(
+                                                  255, 115, 114, 114),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8),
-                                      child: Icon(
-                                        size: 16,
-                                        topicsBasic[index].isUnlocked
-                                            ? Icons.lock_open
-                                            : Icons.lock,
-                                        color: Colors.black,
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Icon(
+                                          size: 16,
+                                          topicsBasic[index].isUnlocked
+                                              ? Icons.lock_open
+                                              : Icons.lock,
+                                          color: Colors.black,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             );
@@ -184,6 +195,7 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         height: 140,
                         child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: topicsBasic.length,
                           itemBuilder: (context, index) {
                             return Padding(
@@ -235,6 +247,7 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         height: 140,
                         child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: topicsBasic.length,
                           itemBuilder: (context, index) {
                             return Padding(
