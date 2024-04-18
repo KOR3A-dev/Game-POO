@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
-import 'package:game_poo/levels/lesson_intro_poo.dart';
+import 'package:game_poo/levels/basic_level/lesson_intro_poo.dart';
 
 class OnboardingStartTeaching extends StatefulWidget {
   const OnboardingStartTeaching({super.key});

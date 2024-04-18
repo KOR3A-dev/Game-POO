@@ -29,6 +29,7 @@ class _WelcomeState extends State<Welcome> {
         context,
         MaterialPageRoute(builder: (context) => const Home()),
       );
+      _userNameController.clear();
     });
   }
 
