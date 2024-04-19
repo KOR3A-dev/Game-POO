@@ -5,6 +5,7 @@ import 'package:game_poo/levels/intermediate_level/abstraction.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:game_poo/services/local_storage_service.dart';
 
 class Polymorphism extends StatefulWidget {
   const Polymorphism({Key? key}) : super(key: key);
@@ -53,6 +54,7 @@ class _PolymorphismState extends State<Polymorphism> {
       _btnController.reset();
     });
     Timer(const Duration(seconds: 6), () {
+      incrementNavigationCounter();
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const Abstraction()),
@@ -86,7 +88,7 @@ class _PolymorphismState extends State<Polymorphism> {
                   width: 250,
                   backgroundColor: Colors.black,
                   foregrondColor: const Color.fromARGB(255, 220, 90, 70),
-                  ratio: 0.5,
+                  ratio: getCounter(),
                   direction: Axis.horizontal,
                   curve: Curves.fastLinearToSlowEaseIn,
                   duration: const Duration(seconds: 3),

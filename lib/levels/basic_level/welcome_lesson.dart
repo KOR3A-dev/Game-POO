@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:game_poo/services/local_storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:game_poo/levels/basic_level/classes_and_objects.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
@@ -55,12 +55,14 @@ class _WelcomeLessonState extends State<WelcomeLesson> {
       _btnController.reset();
     });
     Timer(const Duration(seconds: 6), () {
+      incrementNavigationCounter();
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const ClasesAndObject()),
       );
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +90,7 @@ class _WelcomeLessonState extends State<WelcomeLesson> {
                   width: 250,
                   backgroundColor: Colors.black,
                   foregrondColor: const Color.fromARGB(255, 220, 90, 70),
-                  ratio: 0.5,
+                  ratio: getCounter(),
                   direction: Axis.horizontal,
                   curve: Curves.fastLinearToSlowEaseIn,
                   duration: const Duration(seconds: 3),

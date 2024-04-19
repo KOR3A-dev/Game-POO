@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:game_poo/home/home.dart';
+import 'package:game_poo/services/local_storage_service.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 class Welcome extends StatefulWidget {
@@ -16,6 +17,12 @@ class _WelcomeState extends State<Welcome> {
   final RoundedLoadingButtonController _btnController =
       RoundedLoadingButtonController();
   bool isNotEmptyUsername = false;
+
+  @override
+  void initState() {
+    super.initState();
+    initializeNavigationCounter();
+  }
 
   void _doSomething() async {
     Timer(const Duration(seconds: 3), () {
@@ -65,7 +72,8 @@ class _WelcomeState extends State<Welcome> {
                     isNotEmptyUsername = value.isNotEmpty;
                   });
                 },
-                style: const TextStyle(color: Colors.black, fontFamily: 'Space',fontSize:18),
+                style: const TextStyle(
+                    color: Colors.black, fontFamily: 'Space', fontSize: 18),
                 decoration: const InputDecoration(
                   labelText: 'Username',
                   hintText: 'Ej : Pepito perez...',
@@ -107,7 +115,11 @@ class _WelcomeState extends State<Welcome> {
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
-              child: Center(child: Text("Version 1.0.0", style: TextStyle(color: Colors.grey),)),
+              child: Center(
+                  child: Text(
+                "Version 1.0.0",
+                style: TextStyle(color: Colors.grey),
+              )),
             )
           ],
         ),

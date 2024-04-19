@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:game_poo/levels/basic_level/introduction_to_poo.dart';
+import 'package:game_poo/levels/advance_level/design_patterns.dart';
+import 'package:game_poo/services/local_storage_service.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -53,9 +54,10 @@ class _AbstractionState extends State<Abstraction> {
       _btnController.reset();
     });
     Timer(const Duration(seconds: 6), () {
+      incrementNavigationCounter();
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const IntroPoo()),
+        MaterialPageRoute(builder: (context) => const DesignPatterns()),
       );
     });
   }
@@ -86,7 +88,7 @@ class _AbstractionState extends State<Abstraction> {
                   width: 250,
                   backgroundColor: Colors.black,
                   foregrondColor: const Color.fromARGB(255, 220, 90, 70),
-                  ratio: 0.5,
+                  ratio: getCounter(),
                   direction: Axis.horizontal,
                   curve: Curves.fastLinearToSlowEaseIn,
                   duration: const Duration(seconds: 3),

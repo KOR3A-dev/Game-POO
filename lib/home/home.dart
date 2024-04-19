@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:custom_accordion/custom_accordion.dart';
 import 'package:game_poo/onboarding/onboarding_start_teaching.dart';
+import 'package:game_poo/services/local_storage_service.dart';
 import 'package:simple_animated_button/simple_animated_button.dart';
 
 class Home extends StatefulWidget {
@@ -11,6 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  
   @override
   Widget build(BuildContext context) {
     List<Topic> topicsBasic = [
@@ -76,9 +78,9 @@ class _HomeState extends State<Home> {
                     borderRadius: const BorderRadius.all(Radius.circular(18))),
               ),
               const SizedBox(height: 10),
-              const Text(
-                "Progress : 0/9",
-                style: TextStyle(
+              Text(
+                "Progress : ${getProgress() - 1}/9",
+                style: const TextStyle(
                     color: Colors.black,
                     fontFamily: 'Space',
                     fontWeight: FontWeight.w500),
