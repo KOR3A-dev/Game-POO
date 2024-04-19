@@ -1,40 +1,42 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:game_poo/levels/intermediate_level/inheritance.dart';
+import 'package:game_poo/levels/basic_level/classes_and_objects.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-class Encapsulation extends StatefulWidget {
-  const Encapsulation({Key? key}) : super(key: key);
+class WelcomeLesson extends StatefulWidget {
+  const WelcomeLesson({Key? key}) : super(key: key);
 
   @override
-  State<Encapsulation> createState() => _EncapsulationState();
+  State<WelcomeLesson> createState() => _WelcomeLessonState();
 }
 
-class _EncapsulationState extends State<Encapsulation> {
+class _WelcomeLessonState extends State<WelcomeLesson> {
   final RoundedLoadingButtonController _btnController =
       RoundedLoadingButtonController();
 
   List<Response> questions = [
     Response(
-      question:
-          "¿Cuál es el propósito principal de encapsular datos en una clase?",
+      question: "¿Qué es la programación orientada a objetos? (POO)",
       options: [
         Option(
           letter: 'a',
-          option: "Evitar que los datos sean modificados accidentalmente.",
+          option:
+              "Un paradigma de programación que se centra en el uso de objectos.",
           isCorrect: true,
         ),
         Option(
           letter: 'b',
-          option: "No hay propósito en encapsular datos en una clase.",
+          option:
+              "Un método de programación que se basa en funciones y procedimientos.",
           isCorrect: false,
         ),
         Option(
           letter: 'c',
-          option: "Hacer que los datos sean accesibles desde cualquier parte del programa.",
+          option:
+              "Un enfoque de programación que solo utiliza código lineal sin estructuras complejas.",
           isCorrect: false,
         ),
       ],
@@ -55,7 +57,7 @@ class _EncapsulationState extends State<Encapsulation> {
     Timer(const Duration(seconds: 6), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const Inheritance()),
+        MaterialPageRoute(builder: (context) => const ClasesAndObject()),
       );
     });
   }
@@ -161,8 +163,7 @@ class _EncapsulationState extends State<Encapsulation> {
                                           ),
                                         )
                                       ],
-                                      desc:
-                                          "Excelente!")
+                                      desc: "POO es un paradigma de programación, excelente!")
                                   .show();
                             });
                             isFinal = true;
@@ -195,25 +196,25 @@ class _EncapsulationState extends State<Encapsulation> {
                       },
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all<Size>(
-                          const Size(310, 70),
+                          const Size(310, 90),
                         ),
-                        side: MaterialStateProperty.resolveWith((states) {
-                          if (!press) {
-                            return const BorderSide(
-                                color: Colors.grey, width: 2.0);
+                         side: MaterialStateProperty.resolveWith((states) {
+                        if (!press) {
+                          return const BorderSide(
+                              color: Colors.grey, width: 2.0);
+                        } else {
+                          if (option.letter == 'a') {
+                            return BorderSide(
+                                color: option.isCorrect
+                                    ? Colors.green
+                                    : Colors.red,
+                                width: 2.0);
                           } else {
-                            if (option.letter == 'a') {
-                              return BorderSide(
-                                  color: option.isCorrect
-                                      ? Colors.green
-                                      : Colors.red,
-                                  width: 2.0);
-                            } else {
-                              return const BorderSide(
-                                  color: Colors.red, width: 2.0);
-                            }
+                            return const BorderSide(
+                                color: Colors.red, width: 2.0);
                           }
-                        }),
+                        }
+                      }),
                       ),
                       child: Row(
                         children: [
@@ -227,7 +228,7 @@ class _EncapsulationState extends State<Encapsulation> {
                               "${option.option}",
                               style: const TextStyle(
                                 fontFamily: 'Space',
-                                fontSize: 13,
+                                fontSize: 14,
                                 color: Colors.black,
                               ),
                               overflow: TextOverflow.ellipsis,

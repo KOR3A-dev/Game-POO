@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
-import 'package:game_poo/levels/basic_level/lesson_intro_poo.dart';
+import 'package:game_poo/levels/basic_level/introduction_to_poo.dart';
 
 class OnboardingStartTeaching extends StatefulWidget {
   const OnboardingStartTeaching({super.key});
@@ -11,7 +11,6 @@ class OnboardingStartTeaching extends StatefulWidget {
 }
 
 class _OnboardingStartTeachingState extends State<OnboardingStartTeaching> {
-
   final Color kDarkBlueColor = const Color(0xFF053149);
 
   @override
@@ -22,14 +21,15 @@ class _OnboardingStartTeachingState extends State<OnboardingStartTeaching> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const LessonIntroPoo(),
+            builder: (context) => const IntroPoo(),
           ),
         );
       },
       finishButtonStyle: FinishButtonStyle(
         backgroundColor: kDarkBlueColor,
-        elevation : 2,
-        shape : const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(27.0))),
+        elevation: 2,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(27.0))),
       ),
       skipTextButton: Text(
         'Skip',
@@ -51,7 +51,7 @@ class _OnboardingStartTeachingState extends State<OnboardingStartTeaching> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const LessonIntroPoo(),
+            builder: (context) => const IntroPoo(),
           ),
         );
       },
@@ -183,5 +183,4 @@ class _OnboardingStartTeachingState extends State<OnboardingStartTeaching> {
       ],
     );
   }
-  }
-
+}

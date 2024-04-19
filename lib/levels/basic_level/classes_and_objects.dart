@@ -1,40 +1,40 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:game_poo/levels/intermediate_level/inheritance.dart';
+import 'package:game_poo/levels/basic_level/encapsulation.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-class Encapsulation extends StatefulWidget {
-  const Encapsulation({Key? key}) : super(key: key);
+class ClasesAndObject extends StatefulWidget {
+  const ClasesAndObject({Key? key}) : super(key: key);
 
   @override
-  State<Encapsulation> createState() => _EncapsulationState();
+  State<ClasesAndObject> createState() => _ClasesAndObjectState();
 }
 
-class _EncapsulationState extends State<Encapsulation> {
+class _ClasesAndObjectState extends State<ClasesAndObject> {
   final RoundedLoadingButtonController _btnController =
       RoundedLoadingButtonController();
 
   List<Response> questions = [
     Response(
       question:
-          "¿Cuál es el propósito principal de encapsular datos en una clase?",
+          "¿Cuál es la diferencia entre una clase y un objeto en la programación orientada a objetos?",
       options: [
         Option(
           letter: 'a',
-          option: "Evitar que los datos sean modificados accidentalmente.",
+          option: " Una clase es una plantilla para crear objetos, mientras que un objeto es una instancia de clase.",
           isCorrect: true,
         ),
         Option(
           letter: 'b',
-          option: "No hay propósito en encapsular datos en una clase.",
+          option: "Una clase y un objeto son lo mismo",
           isCorrect: false,
         ),
         Option(
           letter: 'c',
-          option: "Hacer que los datos sean accesibles desde cualquier parte del programa.",
+          option: "Una clase solo puede contener atributos, mientras que un objeto puede contener métodos.",
           isCorrect: false,
         ),
       ],
@@ -55,7 +55,7 @@ class _EncapsulationState extends State<Encapsulation> {
     Timer(const Duration(seconds: 6), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const Inheritance()),
+        MaterialPageRoute(builder: (context) => const Encapsulation()),
       );
     });
   }
@@ -195,7 +195,7 @@ class _EncapsulationState extends State<Encapsulation> {
                       },
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all<Size>(
-                          const Size(310, 70),
+                          const Size(310, 90),
                         ),
                         side: MaterialStateProperty.resolveWith((states) {
                           if (!press) {
